@@ -1,0 +1,63 @@
+.header {
+    height: 90px;
+}
+
+.header-logo {
+    width: 200px;
+    float: left;
+    margin: 10px;
+}
+
+.header-logo .logo>img {
+    width: 100%;
+    max-height: 70px;
+}
+
+.header-search {
+    padding: 20px 0px;
+    margin-right: 20px;
+    max-width: 400px;
+}
+
+.header-search>form .search-input {  
+    margin-left: 150px;
+    width: 200px;
+}
+
+.mat-icon {
+    position: relative;
+    top: 8px;
+    right: 23px;
+}
+
+.header-user {
+    display: flex;
+    flex-wrap: wrap;
+    width: 230px;
+    float: right;
+}
+
+.header-user>img {
+    width: 70px;
+    height: 70px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.dropdown {
+    height: 30px;
+    margin: 10px;
+    width: 120px;
+    border: 3px #161731 solid;
+    background-color: #161731;
+    color: #FFFFFF;
+}
+
+.hello {
+    height: 20px;
+    margin: 10px;
+}
+
+.user {
+    margin: 5px;
+}
