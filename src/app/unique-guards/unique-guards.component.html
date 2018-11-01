@@ -1,0 +1,31 @@
+<app-header></app-header>
+<app-nav-without-search></app-nav-without-search>   
+<div >
+    <table>
+      <tr> 
+          <th>Guard Id</th>
+          <th>Guard Name </th>
+          <th>Gender</th>
+          <th>Email Id</th>
+          <th>Guard Status</th> 
+          <th>Date Of Birth</th>
+          <th>Local Address</th>
+          <th>Primary Contact Number</th>
+          <th>Secondary Contact Number</th>
+          <th>Remark</th> 
+      </tr> 
+      <tr *ngFor="let data of guards">  
+        <td>{{data.guardId}}</td>
+        <td>{{data.guardName}}</td>
+        <td>{{data.gender}}</td>
+        <td>{{data.emailId}}</td>
+        <td>{{data.guardStatus}}</td> 
+        <td>{{data.dateOfBirth}}</td>
+        <td>{{data.localAddress}}</td>
+        <td>{{data.primaryContactNumber}}</td>
+        <td>{{data.secondaryContactNumber}}</td>
+        <td> hello</td>
+      </tr>   
+    </table>
+  </div>
+  

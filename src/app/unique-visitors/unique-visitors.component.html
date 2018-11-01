@@ -1,0 +1,20 @@
+<app-header></app-header>
+<app-nav-without-search></app-nav-without-search>  
+<div >
+    <table>
+        <tr> 
+          <th>Visitor Id</th>
+          <th>Name of Visitor</th>
+          <th>Contact</th>
+          <th>Government ID Proof</th> 
+        </tr> 
+        <tr *ngFor="let data of visitors">  
+          <td>{{data.visitorId}}</td>
+          <td>{{data.nameOfVisitor}}</td>
+          <td>{{data.contact}}</td>
+          <td>{{data.govtIdProof}}</td>
+        </tr>   
+    </table>
+</div> 
+ 
+ 

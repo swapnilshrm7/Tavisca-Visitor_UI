@@ -1,0 +1,19 @@
+<app-header></app-header>
+<app-nav-without-search></app-nav-without-search> 
+<app-emp-side-nav></app-emp-side-nav>   
+<div>
+<table>
+        <tr> 
+            <th>Employee Id</th>
+            <th>Employee Name</th> 
+        </tr> 
+        <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()">  
+            <td>{{data.employeeId}}</td>
+            <td>{{data.employeeName}}</td> 
+        </tr>   
+</table>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary" (click)="DownloadExcel()">Download Excel</button>
+</div>
+  

@@ -1,0 +1,9 @@
+ <app-header></app-header>
+<app-nav-without-search></app-nav-without-search>   
+<div name="employees" *ngFor="let data of employees">
+    <p>{{data.employeeName}} {{data.bloodGroup}} {{data.dateOfBirth}} {{data.dateOfJoining}} {{data.dateOfResignation}} {{data.emailId}} {{data.emergencyContactNumber}}
+        {{data.emergencyContactPerson}} {{data.employeeId}} {{data.employeeName}} {{data.employeeStatus}} {{data.gender}} {{data.localAddress}} {{data.location}}
+        {{data.medicalSpecification}} {{data.permanentAddress}} {{data.primaryContactNumber}} {{data.remark}} {{data.secondaryContactNumber}}
+    </p>
+</div>
+  

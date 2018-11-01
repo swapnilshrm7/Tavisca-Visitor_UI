@@ -1,0 +1,127 @@
+<app-header></app-header>
+<app-nav-without-search></app-nav-without-search> 
+<div class="jumbotron">
+  <div class="container">
+  <div class="row"> 
+  <div class="col-md-6 offset-md-3">
+  <form [formGroup]="loginForm" (ngSubmit)=" onSubmit()">
+  
+ <div class="form-group container">
+  <label>Guard Id: </label>
+  <input type="text" formControlName="userid" class="form-control" [(ngModel)]="userid" [ngClass]="{ 'is-invalid': submitted && f.userid.errors }" />
+  <div *ngIf="submitted && f.userid.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.userid.errors.required">Guard Id is required</div>
+</div>
+</div>
+<div class="form-group container">
+  <label>Guard Name: </label>
+    <input type="text" formControlName="guardName" class="form-control" [(ngModel)]="guardName" [ngClass]="{ 'is-invalid': submitted && f.guardName.errors }" />
+    <div *ngIf="submitted && f.guardName.errors" class="invalid-feedback">
+      <div class="validationMessage" *ngIf="f.guardName.errors.required">Guard Name is required</div>
+    </div>
+  </div> 
+<div class="form-group container">
+  <label>Email Id: </label>
+  <input type="email" formControlName="emailid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" class="form-control" [(ngModel)]="emailid" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
+  <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.emailid.errors.required">Email Id is required</div>
+  <div class="validationMessage" *ngIf="f.emailid.errors?.pattern">Email Id is invalid</div>  
+</div>
+</div>  
+<div class="form-group container"> 
+    <label>Gender: </label>
+    <select class="a" name="Gender" formControlName="gender" class="form-control" [(ngModel)]="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" >
+        <option value="Male" selected="true">male</option>
+        <option value="Female">female</option>
+        <option value="Other">others</option>
+     </select> 
+     <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+     <div class="validationMessage" *ngIf="f.gender.errors.required">Gender is required</div>
+     </div>
+</div> 
+<div class="form-group container">
+    <label>Date Of Birth: </label>
+    <input type="date" formControlName="dob" class="form-control" [(ngModel)]="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+    <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+    <div class="validationMessage" *ngIf="f.dob.errors.required">Date Of Birth is required</div>
+    </div>
+ </div> 
+ <div class="form-group container">
+    <label>Date Of Joining: </label>
+    <input type="date" formControlName="doj" class="form-control" [(ngModel)]="doj" [ngClass]="{ 'is-invalid': submitted && f.doj.errors }" />
+    <div *ngIf="submitted && f.doj.errors" class="invalid-feedback">
+    <div class="validationMessage" *ngIf="f.doj.errors.required">Date Of Joining is required</div>
+    </div>
+ </div> 
+<div class="form-group container">
+  <label>Local Address: </label>
+  <input type="text" formControlName="localAddress" class="form-control" [(ngModel)]="localAddress" [ngClass]="{ 'is-invalid': submitted && f.localAddress.errors }" />
+  <div *ngIf="submitted && f.localAddress.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.localAddress.errors.required">Local Address is required</div>
+  </div>
+</div>   
+<div class="form-group container">
+  <label>Permanent Address: </label>
+  <input type="text" formControlName="permanentAddress" class="form-control" [(ngModel)]="permanentAddress" [ngClass]="{ 'is-invalid': submitted && f.permanentAddress.errors }" />
+  <div *ngIf="submitted && f.permanentAddress.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.permanentAddress.errors.required">Permanent Address is required</div>
+  </div>
+</div> 
+<div class="form-group container">
+  <label>Emergency contact person: </label>
+  <input type="text" formControlName="emergencyPerson" class="form-control" [(ngModel)]="emergencyPerson" [ngClass]="{ 'is-invalid': submitted && f.emergencyPerson.errors }" />
+  <div *ngIf="submitted && f.emergencyPerson.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.emergencyPerson.errors.required">Emergency contact Person is required</div>
+  </div>
+</div>  
+<div class="form-group container">
+  <label>Emergency Contact: </label>
+  <input type="number" formControlName="emergencyContact" pattern="^((\+){1}91){1}[1-9]{1}[0-9]{9}$" class="form-control" [(ngModel)]="emergencyContact" [ngClass]="{ 'is-invalid': submitted && f.emergencyContact.errors }" />
+  <div *ngIf="submitted && f.emergencyContact.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.emergencyContact.errors.required">Emergency Contact is required</div>
+  <div class="validationMessage" *ngIf="f.emergencyContact.errors?.pattern">Contact number is invalid</div>  
+  </div>
+</div> 
+<div class="form-group container">
+  <label>Contact Number: </label>
+  <input type="number" formControlName="contact" pattern="^((\+){1}91){1}[1-9]{1}[0-9]{9}$" class="form-control" [(ngModel)]="contact" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }" />
+  <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+  <div class="validationMessage" *ngIf="f.contact.errors.required"> Contact Number is required</div> 
+  <div class="validationMessage" *ngIf="f.contact.errors?.pattern">Contact number is invalid</div>  
+  </div>
+</div> 
+<div class="form-group container">
+  <label>Secondary Contact Number: (optional) </label>
+  <input type="number" formControlName="secondaryContact" pattern="^((\+){1}91){1}[1-9]{1}[0-9]{9}$" class="form-control" [(ngModel)]="secondaryContact"/>   
+  <div class="validationMessage" *ngIf="f.emergencyContact.errors?.pattern">Contact number is invalid</div>  
+</div> 
+<div class="form-group container">
+  <label>Remark: (optional) </label>
+  <input type="text" formControlName="remark" class="form-control" [(ngModel)]="remark" /> 
+</div> 
+<div class="form-group container">
+  <label>Medical Specification: (optional) </label>
+  <input type="text" formControlName="medicalSpecification" class="form-control" [(ngModel)]="medicalSpecification" /> 
+</div>
+<div class="form-group container"> 
+  <label>Blood Group: </label>
+  <select class="a" name="bloodGrp" formControlName="bloodGrp" class="form-control" [(ngModel)]="bloodGrp" [ngClass]="{ 'is-invalid': submitted && f.bloodGrp.errors }" >
+      <option value="B+ve" selected="true">B+ve</option>
+      <option value="B-ve">B-ve</option> 
+   </select> 
+   <div *ngIf="submitted && f.bloodGrp.errors" class="invalid-feedback">
+   <div class="validationMessage" *ngIf="f.bloodGrp.errors.required">Blood Group is required</div>
+   </div>
+</div> 
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary" (click)="Authentication()" >Register</button>
+  </div>
+  <div class="container" style="background-color:#f1f1f1">
+  <button type="button" class="cancelbtn" (click)="refresh()" >Reset</button> 
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div> 
+  

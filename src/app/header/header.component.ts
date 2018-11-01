@@ -11,5 +11,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  refresh() {
+    location.reload();
+    }  
 
+  ResetPassword() {
+location.replace('http://localhost:4200/resetPassword');
+  }
 }

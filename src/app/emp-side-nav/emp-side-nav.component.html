@@ -1,0 +1,40 @@
+<div class="tab">
+    <button class="tablinks" (click)="nameToggleCollapse()">Employee Name</button>
+    <div class="filter-box" *ngIf="!nameIsCollapsed">
+      Name:<br>
+      <input class="search-input" type="text" [(ngModel)]="name">
+      <button class="search-btn" (click)="getByEmployeeName()">Search</button>
+    </div>
+    <button class="tablinks" (click)="idToggleCollapse()">Employee Id</button>
+    <div class="filter-box" *ngIf="!idIsCollapsed">
+      Id:<br>
+      <input class="search-input" type="text" [(ngModel)]="employeeId">
+      <button class="search-btn" (click)="getById()">Search</button>
+    </div>
+    <button class="tablinks" (click)="dateToggleCollapse()">Date</button>
+    <div class="filter-box" *ngIf="!dateIsCollapsed">
+      From Date:<br>
+      <input class="search-input" type="date" [(ngModel)]="fromdate"><br>
+      To Date:<br>
+      <input class="search-input" type="date" [(ngModel)]="toDate"><br>
+      From Time:<br>
+      <input class="search-input" type="time" [(ngModel)]="fromTime"><br>
+      To Time:<br>
+      <input class="search-input" type="time" [(ngModel)]="toTime">
+      <button class="search-btn" (click)="getByDate()">Search</button>
+    </div>
+    <button class="tablinks" (click)="dateNameToggleCollapse()">Date And Name</button>
+    <div class="filter-box" *ngIf="!dateNameIsCollapsed">
+      Name:<br>
+      <input class="search-input" type="text" [(ngModel)]="nameSecondFilter"><br>
+      From Date:<br>
+      <input class="search-input" type="date" [(ngModel)]="fromdateSecondFilter"><br>
+      To Date:<br>
+      <input class="search-input" type="date" [(ngModel)]="toDateSecondFilter"><br>
+      From Time:<br>
+      <input class="search-input" type="time" [(ngModel)]="fromTimeSecondFilter"><br>
+      To Time:<br>
+      <input class="search-input" type="time" [(ngModel)]="toTimeSecondFilter">
+      <button class="search-btn" (click)="getByDateAndName()">Search</button>
+    </div>
+  </div>

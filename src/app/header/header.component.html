@@ -5,14 +5,13 @@
     </a>
   </div>
   <div class="header-user">
-    <img src="assets/logo.png" alt="user-icon" class="icon">
-    <div class="user">
-      <select class="dropdown">
-        <option>My Account</option>
-        <option>Change Password</option>
-        <option>LogOut</option>
-      </select>
-      <p class="hello">Hello User!</p>
+    <img src="assets/logo.png" alt="user-icon" class="icon">  
+    <div class="dropdown">
+      <button class=" btn dropbtn">My Account</button>
+      <div class="dropdown-content">
+        <a >Settings</a> 
+        <a (click)="ResetPassword()">Reset Password</a>
+      </div>
     </div>
   </div>
 </div>
