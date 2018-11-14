@@ -45,7 +45,7 @@ export class GuardSideNavComponent implements OnInit {
     this.nameObject = {
       "UserInput": this.name 
     }; 
-    this.http.put('https://localhost:44303/api/Guard/ByName',this.nameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/ByName',this.nameObject)
     .subscribe((response) => {
       this.response = response; 
       this.dataService.setResponseOfUniqueGuardByName(response);  
@@ -60,7 +60,7 @@ export class GuardSideNavComponent implements OnInit {
       "fromTime": this.fromTime,
       "toTime": this.toTime 
     }; 
-    this.http.put('https://localhost:44303/api/Guard/DateAndTime',this.dateObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/DateAndTime',this.dateObject)
     .subscribe((response) => {
       this.response = response; 
       console.log(response);

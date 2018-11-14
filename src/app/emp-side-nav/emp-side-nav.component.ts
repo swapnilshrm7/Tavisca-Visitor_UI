@@ -67,7 +67,7 @@ export class EmpSideNavComponent implements OnInit {
     this.nameObject = {
       "UserInput": this.name 
     }; 
-    this.http.put('https://localhost:44303/api/Employee/LogsByName',this.nameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Employee/LogsByName',this.nameObject)
     .subscribe((response) => {
       this.response = response; 
       this.dataService.setResponseOfUniqueGuardByName(response);  
@@ -79,7 +79,7 @@ export class EmpSideNavComponent implements OnInit {
     this.nameObject = {
       "UserInput": this.employeeId 
     }; 
-    this.http.put('https://localhost:44303/api/Employee/LogsByName',this.nameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Employee/LogsByName',this.nameObject)
     .subscribe((response) => {
       this.response = response; 
       this.dataService.setResponseOfUniqueGuardByName(response);  
@@ -94,7 +94,7 @@ export class EmpSideNavComponent implements OnInit {
       "fromTime": this.fromTime,
       "toTime": this.toTime 
     }; 
-    this.http.put('https://localhost:44303/api/Employee/LogsByDate',this.dateObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Employee/LogsByDate',this.dateObject)
     .subscribe((response) => {
       this.response = response; 
       console.log(response);
@@ -111,7 +111,7 @@ export class EmpSideNavComponent implements OnInit {
       "toTime": this.toTimeSecondFilter,
       "nameOfVisitor": this.nameSecondFilter 
     }; 
-    this.http.put('https://localhost:44303/api/Employee/LogsByDateAndName',this.dateAndNameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Employee/LogsByDateAndName',this.dateAndNameObject)
     .subscribe((response) => {
       this.response = response; 
       console.log(response);

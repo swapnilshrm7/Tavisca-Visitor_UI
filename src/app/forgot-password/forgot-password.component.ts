@@ -34,7 +34,7 @@ GetId() {
   };
   alert(this.userId["UserInput"]);
   this.displayNext = true;
-  this.http.put('https://localhost:44303/api/PasswordManipulation/ForgotPassword_Otp',this.userId).subscribe((response) => {
+  this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/PasswordManipulation/ForgotPassword_Otp',this.userId).subscribe((response) => {
     this.response = response;  
     console.log(this.response);
   }); 
@@ -45,12 +45,12 @@ GetId() {
       "UserId": this.employeeId,
       "Otp": this.otp 
     };
-    this.http.put('https://localhost:44303/api/PasswordManipulation/ForgotPassword_Validation',this.otpAndId)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/PasswordManipulation/ForgotPassword_Validation',this.otpAndId)
     .subscribe((response) => {
       this.response = response; 
       if(this.response == true)
       {  
-        location.replace('http://localhost:4200/askNewPassword');
+        location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/askNewPassword');
       }
     }) ;
   }
