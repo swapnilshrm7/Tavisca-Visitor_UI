@@ -73,7 +73,7 @@ export class VisitorSideNavComponent implements OnInit {
     this.nameObject = {
       "UserInput": this.name 
     }; 
-    this.http.put('https://localhost:44303/api/Visitors/LogsByName',this.nameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Visitors/LogsByName',this.nameObject)
     .subscribe((response) => {
       this.response = response; 
       this.dataService.setResponseOfUniqueGuardByName(response);  
@@ -85,7 +85,7 @@ export class VisitorSideNavComponent implements OnInit {
     this.nameObject = {
       "UserInput": this.purpose 
     }; 
-    this.http.put('https://localhost:44303/api/Visitors/PurposeOfVisit',this.nameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Visitors/PurposeOfVisit',this.nameObject)
     .subscribe((response) => {
       this.response = response; 
       this.dataService.setResponseOfUniqueGuardByName(response);  
@@ -97,7 +97,7 @@ export class VisitorSideNavComponent implements OnInit {
     this.nameObject = {
       "UserInput": this.meetingPerson 
     }; 
-    this.http.put('https://localhost:44303/api/Visitors/LogsByMeetingPerson',this.nameObject)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Visitors/LogsByMeetingPerson',this.nameObject)
     .subscribe((response) => {
       this.response = response; 
       this.dataService.setResponseOfUniqueGuardByName(response);  

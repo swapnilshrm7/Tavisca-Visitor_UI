@@ -41,7 +41,7 @@ refresh() {
   RemoveGuard() { 
     this.dataService.setInput({'UserInput': this.removeId}); 
     console.log(this.dataService.getInput());
-    this.http.put('https://localhost:44303/api/Guard/RemoveGuard', this.dataService.getInput())
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/RemoveGuard', this.dataService.getInput())
     .subscribe((response) => {  
       if(response == true)
       {  
@@ -53,7 +53,7 @@ refresh() {
   RemoveEmployee() {
     this.dataService.setInput({'UserInput': this.removeId_Emp}); 
     console.log(this.dataService.getInput());
-    this.http.put('https://localhost:44303/api/Guard/RemoveEmployee', this.dataService.getInput())
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/RemoveEmployee', this.dataService.getInput())
     .subscribe((response) => {  
       if(response == true)
       {  

@@ -12,7 +12,7 @@ constructor(private http: HttpClient) { }
  employees= {};  
  countOfEmployees : number;
 ngOnInit() { 
-     this.http.get('https://localhost:44303/api/Employee/AllEmployees')
+     this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Employee/AllEmployees')
      .subscribe((response) => {
       console.log(response);  
       this.employees = response; 

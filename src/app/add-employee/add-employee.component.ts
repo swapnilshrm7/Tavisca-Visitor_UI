@@ -72,7 +72,7 @@ export class AddEmployeeComponent implements OnInit {
       "MedicalSpecification": this.medicalSpecification,
       
     }; 
-    this.http.post('https://localhost:44303/api/Guard/AddGuard', this.loginInput)
+    this.http.post('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/AddGuard', this.loginInput)
       .subscribe((response) => { 
         console.log(this.response); 
         if(this.response == true)

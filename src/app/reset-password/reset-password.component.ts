@@ -38,7 +38,7 @@ Authentication(){
     "UserId": this.oldPswd,
     "Password":sessionStorage.getItem('loggedInEmployeeId')
   }; 
-  this.http.put('https://localhost:44303/api/User/Login',this.credentials)
+  this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/User/Login',this.credentials)
     .subscribe((response) => {
       this.response = response;
       console.log(this.response); 

@@ -92,7 +92,7 @@ validationMessage: string = '';
     {
       this.validationMessage = "Guard must have age equal to or more than 19 years.";
     } 
-    this.http.post('https://localhost:44303/api/Guard/AddGuard',this.guard)
+    this.http.post('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/AddGuard',this.guard)
     .subscribe((response) => {  
       console.log(response); 
       if(response == true)

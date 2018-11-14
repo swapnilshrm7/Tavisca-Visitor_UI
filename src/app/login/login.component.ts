@@ -49,7 +49,7 @@ Authentication() {
     /** spinner ends after 5 seconds */
     this.spinner.hide();
 }, 3000);
-  this.http.put('https://localhost:44303/api/User/Login',this.loginInput)
+  this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/User/Login',this.loginInput)
     .subscribe((response) => {
       this.response = response;
       console.log(this.response); 

@@ -14,7 +14,7 @@ export class VisitorLogComponent implements OnInit {
   excelInput ={};
   count: number;
   ngOnInit() {
-    this.http.get('https://localhost:44303/api/Visitors/Log')
+    this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Visitors/Log')
              .subscribe((response) => { 
               this.dataService.setResponseOfUniqueGuardByName(response);
               this.visitors = this.dataService.getResponseOfUniqueGuardByName(); 
@@ -44,7 +44,7 @@ export class VisitorLogComponent implements OnInit {
   }
   DownloadExcel() {
     this.excelInput = {"UserInput": "Visitor"};
-    this.http.put('https://localhost:44303/api/Admin/Excel',this.excelInput)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Admin/Excel',this.excelInput)
              .subscribe((response) => {
               this.Open();
             });

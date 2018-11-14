@@ -10,16 +10,28 @@ import { DataService } from '../data.service';
 export class WelcomePageComponent implements OnInit {
 userId = {};
 homeContent = {};   
+interval: any;
   constructor(private http: HttpClient, private dataService: DataService) { 
    }
 
   ngOnInit() {   
     sessionStorage.setItem('currentPageEqualsWelcomePage', 'true'); 
+    this.refreshData();
+    this.interval = setInterval(() => { 
+        this.refreshData(); 
+    }, 5000);
     this.userId = {"UserInput": sessionStorage.getItem('loggedInEmployeeId') }; 
-    this.http.put('https://localhost:44303/api/Admin/GetAllLogs', this.userId)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Admin/GetAllLogs', this.userId)
     .subscribe((response) => {  
      this.homeContent = response;
      console.log(this.homeContent); 
    }); 
-  }  
+  } 
+  refreshData(){
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Admin/GetAllLogs', this.userId)
+    .subscribe((response) => {  
+     this.homeContent = response;
+     console.log(this.homeContent); 
+   }); 
+}
 }

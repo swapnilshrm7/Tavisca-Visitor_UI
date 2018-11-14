@@ -12,7 +12,7 @@ export class UniqueVisitorsComponent implements OnInit {
   visitors= {};  
   count: number;
   ngOnInit() { 
-   this.http.get('https://localhost:44303/api/Visitors/UniqueVisitors')
+   this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Visitors/UniqueVisitors')
    .subscribe((response) => {
     console.log(response);  
     this.visitors = response; 

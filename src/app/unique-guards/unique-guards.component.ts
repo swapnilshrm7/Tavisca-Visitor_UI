@@ -15,7 +15,7 @@ export class UniqueGuardsComponent implements OnInit {
   count: number;
   ngOnInit() { 
     this.filterType= "search";
-   this.http.get('https://localhost:44303/api/Guard/AllGuards')
+   this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/AllGuards')
    .subscribe((response) => { 
     this.guards = response;  
     this.count = Object.keys(this.guards).length; 

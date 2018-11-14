@@ -14,7 +14,7 @@ export class GuardLogsComponent implements OnInit {
   excelInput= {};
   count: number;
   ngOnInit() { 
-    this.http.get('https://localhost:44303/api/Guard/Log')
+    this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/Log')
     .subscribe((response) => { 
       this.dataService.setResponseOfUniqueGuardByName(response);
       this.guardLogs = this.dataService.getResponseOfUniqueGuardByName(); 

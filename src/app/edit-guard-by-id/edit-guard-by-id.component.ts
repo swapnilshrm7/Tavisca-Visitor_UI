@@ -51,7 +51,7 @@ editData={};
       dateOfJoining: this.dateOfJoining
     });
   
-  this.http.put('https://localhost:44303/api/Guard/GuardById', this.dataService.getInput())
+  this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/GuardById', this.dataService.getInput())
   .subscribe((response) => {  
     this.dataService.res = response;  
     this.dataService.setResponseOfEdit(response);  
@@ -99,7 +99,7 @@ editData={};
   "DateOfJoining": this.dateOfJoining,
   "BloodGroup": this.bloodGroup 
     }; 
-    this.http.put('https://localhost:44303/api/Guard/EditGuard', this.editData)
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/Guard/EditGuard', this.editData)
       .subscribe((response) => {  
         if(response == true)
         { 

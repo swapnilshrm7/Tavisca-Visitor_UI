@@ -15,7 +15,7 @@ export class EmployeeLogsComponent implements OnInit {
   url: {};
   count : number;
 ngOnInit() {   
-this.http.get('https://localhost:44303/api/Employee/EmployeeLogs')
+this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Employee/EmployeeLogs')
              .subscribe((response) => {
               this.dataService.setResponseOfUniqueGuardByName(response);
       this.employees = this.dataService.getResponseOfUniqueGuardByName();
