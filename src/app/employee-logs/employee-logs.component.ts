@@ -13,11 +13,14 @@ export class EmployeeLogsComponent implements OnInit {
   employees = {}; 
   excelInput = {}; 
   url: {};
+  count : number;
 ngOnInit() {   
 this.http.get('https://localhost:44303/api/Employee/EmployeeLogs')
              .subscribe((response) => {
               this.dataService.setResponseOfUniqueGuardByName(response);
-      this.employees = this.dataService.getResponseOfUniqueGuardByName(); 
+      this.employees = this.dataService.getResponseOfUniqueGuardByName();
+      console.log( this.dataService.getResponseOfUniqueGuardByName()); 
+      this.count = Object.keys(this.dataService.getResponseOfUniqueGuardByName()).length;
 });
   } 
 

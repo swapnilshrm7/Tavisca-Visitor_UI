@@ -14,7 +14,7 @@
           <th>Secondary Contact Number</th>
           <th>Remark</th> 
       </tr> 
-      <tr *ngFor="let data of guards">  
+      <tr *ngFor="let data of guards| paginate: { itemsPerPage:15, currentPage: p }">  
         <td>{{data.guardId}}</td>
         <td>{{data.guardName}}</td>
         <td>{{data.gender}}</td>
@@ -27,5 +27,6 @@
         <td> hello</td>
       </tr>   
     </table>
+    <pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
   </div>
   

@@ -12,11 +12,13 @@ export class VisitorLogComponent implements OnInit {
   constructor(private http: HttpClient, private dataService: DataService) { }
   visitors = {};  
   excelInput ={};
+  count: number;
   ngOnInit() {
     this.http.get('https://localhost:44303/api/Visitors/Log')
              .subscribe((response) => { 
               this.dataService.setResponseOfUniqueGuardByName(response);
               this.visitors = this.dataService.getResponseOfUniqueGuardByName(); 
+              this.count = Object.keys(this.dataService.getResponseOfUniqueGuardByName()).length; 
             });
   }
   SearchByName() { 

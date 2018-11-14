@@ -54,6 +54,16 @@ span.psw {
     padding-top: 16px;
 }
 
+.spinner {
+   width: 1000px;
+   height: 1000px;
+  } 
+  .validation { 
+    color: red; 
+}
+.validation-div {
+    text-align: center;
+}
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {

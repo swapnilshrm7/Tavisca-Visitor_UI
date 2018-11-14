@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormsModule, EmailValidator } from '@angular/forms'; 
-import { TestService } from '../test.service';
+import { Component, OnInit } from '@angular/core'; 
+import { Guard } from '../shared/guard.model';
+import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { GuardService } from '../shared/guard.service';
+import { FormsModule } from '@angular/forms';  
 
 @Component({
   selector: 'app-add-guard',
@@ -9,105 +11,94 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./add-guard.component.css']
 })
  export class AddGuardComponent implements OnInit { 
-  submitted = false;
-  loginForm: FormGroup;
-  userid: string = "";
-  guardName: string = ""; 
+  guard: Guard ;
+  emailPattern: any;
+  userid: string;
+  guardName: string; 
   emailid: string; 
   permanentAddress: string;
-  returnUrl: string;
   localAddress: string;
+  emergencyPerson: string;
   emergencyContact: string;
   dob: Date;
   bloodGrp: string;
-  contact: string
-  response: any;
-  gender: string;
-  emergencyPerson: string;
-  loginInput= {};
+  contact: string ;
+  gender: string; 
   doj: Date;
   remark: string;
   medicalSpecification: string
   secondaryContact: string;
-  constructor(private formBuilder: FormBuilder, private svc: TestService, private http: HttpClient) { 
+validationMessage: string = '';
+  constructor(private guardService: GuardService, private http: HttpClient) { 
+   }  
+   numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true; 
+  }
+  ngOnInit() { 
+    this.emailPattern= "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"; 
     
+  }
+   resetForm(form?: NgForm)
+   {
+     if(form != null)
+     form.reset();
+     this.userid= '';
+     this.guardName= '';
+     this.emailid= '';
+     this.permanentAddress= '';
+     this.localAddress= '';
+     this.emergencyContact= '';
+     this.emergencyPerson= '';
+     this.dob= null;
+     this.bloodGrp= '';
+     this.contact= '';
+     this.gender= '';
+     this.doj= null;
+     this.remark= '';
+     this.medicalSpecification= '';
+  
    }
   
-  ngOnInit() {
-  this.loginForm =this.formBuilder.group({
-  userid: this.userid,
-  guardName: this.guardName,
-  emailid: this.emailid,
-  localAddress: this.localAddress,
-  permanentAddress: this.permanentAddress,
-  emergencyContact: this.emergencyContact,
-  emergencyPerson: this.emergencyPerson,
-  contact: this.contact,
-  dob: this.dob,
-  gender: this.gender,
-  bloodGrp: this.bloodGrp,
-  doj: this.doj,
-  remark: this.remark,
-  medicalSpecification: this.medicalSpecification,
-  secondaryContact: this.secondaryContact 
-  }); 
-  }
-  
-  Validations(){
-
-  }
-
-  Authentication() {   
-    this.loginInput = {
-      "GuardId": this.userid,
-      "GuardName":this.guardName,
-      "EmailId":this.emailid,
-      "Gender": this.gender,
-      "DateOfBirth": this.dob,
-      "LocalAddress": this.localAddress,
-      "PermanentAddress": this.permanentAddress,
-      "EmergencyContactNumber": this.emergencyContact,
-      "EmergencyContactPerson": this.emergencyPerson,
-      "PrimaryContactNumber": this.contact,
-      "SecondaryContactNumber": this.secondaryContact,
-      "DateOfJoining": this.doj,
-      "Remark": this.remark,
-      "BloodGroup": this.bloodGrp,
-      "MedicalSpecification": this.medicalSpecification
+  OnSubmit(form: NgForm)
+  {  
+    this.guard={
+      GuardId:this.userid,
+      GuardName : this.guardName,
+      EmailId: this.emailid,
+      PermanentAddress: this.permanentAddress,
+      LocalAddress: this.localAddress,
+      EmergencyContactNumber: this.emergencyContact,
+      EmergencyContactPerson: this.emergencyPerson,
+      DateOfBirth: this.dob,
+      BloodGroup: this.bloodGrp,
+      PrimaryContactNumber: this.contact,
+      Gender: this.gender,
+      DateOfJoining: this.doj,
+      Remark :this.remark,
+      MedicalSpecification:this.medicalSpecification,
+      SecondaryContactNumber :this.secondaryContact
     }; 
-    this.http.post('https://localhost:44303/api/Employee/AddEmployee', this.loginInput)
-      .subscribe((response) => { 
-        console.log(this.response); 
-        if(this.response == true)
-        { 
-          location.replace('http://localhost:4200/welcomePage');
-        }
-      }) 
+    console.log("Date Of Joining-- "+this.doj);
+    console.log("Date Of Joining value-- "+this.doj.valueOf());
+    var diff = Math.abs(new Date(this.doj).getTime() - new Date(this.dob).getTime());
+    console.log("Difference-- "+diff);
+     var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+     console.log("Number of days--- "+ diffDays);
+    if(diff != 6700)
+    {
+      this.validationMessage = "Guard must have age equal to or more than 19 years.";
+    } 
+    this.http.post('https://localhost:44303/api/Guard/AddGuard',this.guard)
+    .subscribe((response) => {  
+      console.log(response); 
+      if(response == true)
+      {   
+        this.resetForm(); 
+      }
+    })  
   } 
-
-  refresh() {
-  location.reload();
-  }
-  get f() { return this.loginForm.controls; }
-   
-  onSubmit() { 
-    this.loginForm = this.formBuilder.group({
-      userid: ['', Validators.required],
-      guardName: ['', [Validators.required]],
-      emailid: ['',[Validators.required, Validators.email]],
-      localAddress: ['',[Validators.required]],
-      permanentAddress: ['',[Validators.required]],
-      emergencyContact: ['',[Validators.required ]],
-      emergencyPerson: ['',[Validators.required]],
-      contact: ['',[Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
-      dob: ['', [Validators.required]],
-      gender: ['', [Validators.required]],
-      bloodGrp: ['',[Validators.required]],
-      doj:['',[Validators.required]] 
-      }); 
-  this.submitted = true;
-  if (this.loginForm.invalid) {
-  return;
-  }
-  }
   }

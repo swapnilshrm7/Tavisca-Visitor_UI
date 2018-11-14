@@ -15,7 +15,7 @@
           <th>Guard Id</th> 
           <th>Purpose Of Visit</th> 
       </tr> 
-      <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()">  
+      <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()| paginate: { itemsPerPage:15, currentPage: p }">  
         <td>{{data.visitorId}}</td> 
         <td>{{data.nameOfVisitor}}</td> 
         <td>{{data.contact}}</td>
@@ -28,6 +28,7 @@
         <td>{{data.purposeOfVisit}}</td> 
       </tr>   
     </table>
+    <pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
   </div>
   <div class="form-group">
       <button type="submit" class="btn btn-primary" (click)="DownloadExcel()">Download Excel</button>

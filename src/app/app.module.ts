@@ -18,7 +18,7 @@ import { NavWithoutSearchComponent } from './nav-without-search/nav-without-sear
 import { AddGuardComponent } from './add-guard/add-guard.component'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
 import { UniqueGuardsComponent } from './unique-guards/unique-guards.component';
 import { GuardLogsComponent } from './guard-logs/guard-logs.component';
 import { UniqueEmployeesComponent } from './unique-employees/unique-employees.component';
@@ -36,6 +36,10 @@ import { Routes } from '@angular/router';
 import { VisitorSideNavComponent } from './visitor-side-nav/visitor-side-nav.component';
 import { EmpSideNavComponent } from './emp-side-nav/emp-side-nav.component';
 import { GuardSideNavComponent } from './guard-side-nav/guard-side-nav.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
+import {MatSelectModule} from '@angular/material/select'; 
+import { NgxSpinnerModule } from 'ngx-spinner';  
+import {MatRadioModule} from '@angular/material/radio';
 
 export class MyModule {}
 
@@ -82,6 +86,13 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
+    NgxPaginationModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    NgxSpinnerModule,
+    MatSelectModule, 
+    MatRadioModule,
     RouterModule.forRoot([
       {
         path:'',

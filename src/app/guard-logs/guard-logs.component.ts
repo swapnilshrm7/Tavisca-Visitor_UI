@@ -12,11 +12,13 @@ export class GuardLogsComponent implements OnInit {
   constructor(private http: HttpClient, private dataService: DataService) { }
   guardLogs = {};   
   excelInput= {};
+  count: number;
   ngOnInit() { 
     this.http.get('https://localhost:44303/api/Guard/Log')
     .subscribe((response) => { 
       this.dataService.setResponseOfUniqueGuardByName(response);
       this.guardLogs = this.dataService.getResponseOfUniqueGuardByName(); 
+      this.count = Object.keys(this.dataService.getResponseOfUniqueGuardByName()).length; 
 }); 
   }
 

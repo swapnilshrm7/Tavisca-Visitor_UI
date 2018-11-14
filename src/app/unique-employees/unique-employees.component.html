@@ -1,9 +1,28 @@
- <app-header></app-header>
-<app-nav-without-search></app-nav-without-search>   
-<div name="employees" *ngFor="let data of employees">
-    <p>{{data.employeeName}} {{data.bloodGroup}} {{data.dateOfBirth}} {{data.dateOfJoining}} {{data.dateOfResignation}} {{data.emailId}} {{data.emergencyContactNumber}}
-        {{data.emergencyContactPerson}} {{data.employeeId}} {{data.employeeName}} {{data.employeeStatus}} {{data.gender}} {{data.localAddress}} {{data.location}}
-        {{data.medicalSpecification}} {{data.permanentAddress}} {{data.primaryContactNumber}} {{data.remark}} {{data.secondaryContactNumber}}
-    </p>
+<app-header></app-header>
+<app-nav-without-search></app-nav-without-search>
+ 
+<div>
+    <table>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Gender</th>
+            <th>Email Id</th>
+            <th>Date Of Joining</th> 
+            <th>Primary Contact Number</th>
+            <th>Secondary Contact Number</th>
+            <th>Remark</th>
+        </tr>
+        <tr *ngFor="let data of employees| paginate: { itemsPerPage:15, currentPage: p }">
+            <td>{{data.employeeId}}</td>
+            <td>{{data.employeeName}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.emailId}}</td>
+            <td>{{data.dateOfJoining}}</td>  
+            <td>{{data.primaryContactNumber}}</td>
+            <td>{{data.secondaryContactNumber}}</td>
+            <td> {{data.remark}}</td>
+        </tr>
+    </table>
+    <pagination-controls *ngIf="this.countOfEmployees > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
 </div>
-  

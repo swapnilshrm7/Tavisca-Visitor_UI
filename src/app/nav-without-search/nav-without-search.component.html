@@ -28,7 +28,7 @@
                 <label>Employee Id: </label>
                 <input type="text" class="form-control" [(ngModel)]="editId" [ngClass]="{ 'is-invalid': submitted && f.editId.errors }" />
                 <div *ngIf="submitted && f.editId.errors" class="invalid-feedback">
-                    <div class="validationMessage" *ngIf="f.editId.errors.required">Employee Id is required</div>
+                    <div class="validationMessage" *ngIf="f.editId.errors.required">Guard Id is required</div>
                 </div> 
                 <button type="button" routerLink="/editGuardById" (click)="Edit()" data-dismiss="modal" class="btn btn-default nav-drop-btn">Submit</button>
               </div>
@@ -48,7 +48,7 @@
                 <label>Employee Id: </label>
                 <input type="text" class="form-control" [(ngModel)]="removeId" [ngClass]="{ 'is-invalid': submitted && f.removeId.errors }" />
                 <div *ngIf="submitted && f.removeId.errors" class="invalid-feedback">
-                    <div class="validationMessage" *ngIf="f.removeId.errors.required">Employee Id is required</div>
+                    <div class="validationMessage" *ngIf="f.removeId.errors.required">Guard Id is required</div>
                 </div> 
                 <button type="button" (click)="RemoveGuard()" data-dismiss="modal" data-dismiss="modal" class="btn btn-default nav-drop-btn">Submit</button>
               </div>

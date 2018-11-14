@@ -8,13 +8,14 @@
           <th>Contact</th>
           <th>Government ID Proof</th> 
         </tr> 
-        <tr *ngFor="let data of visitors">  
+        <tr *ngFor="let data of visitors| paginate: { itemsPerPage:15, currentPage: p }">  
           <td>{{data.visitorId}}</td>
           <td>{{data.nameOfVisitor}}</td>
           <td>{{data.contact}}</td>
           <td>{{data.govtIdProof}}</td>
         </tr>   
     </table>
+    <pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
 </div> 
  
  

@@ -12,12 +12,13 @@ export class UniqueGuardsComponent implements OnInit {
   constructor(private http: HttpClient,private dataService: DataService) { }  
   guards: any;   
   filterType: string;
+  count: number;
   ngOnInit() { 
     this.filterType= "search";
    this.http.get('https://localhost:44303/api/Guard/AllGuards')
    .subscribe((response) => { 
-    this.guards = response; 
-    console.log(this.filterType);
+    this.guards = response;  
+    this.count = Object.keys(this.guards).length; 
   });  
 }
 }

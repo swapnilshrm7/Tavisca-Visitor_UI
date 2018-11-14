@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'; 
 import { TestService } from '../test.service';
 import { HttpClient } from '@angular/common/http'; 
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
 selector: 'app-login',
@@ -18,8 +18,9 @@ password: string = "";
 loginInput= {};
 response: any;
 returnUrl: string;
-
-constructor(private formBuilder: FormBuilder, private svc: TestService, private http: HttpClient) {
+showSpinner: boolean = true;
+validationMessage: string = '';
+constructor(private spinner: NgxSpinnerService, private formBuilder: FormBuilder, private svc: TestService, private http: HttpClient) {
   //svc.GetRequestWithoutParam('https://localhost:44303/api/Guard/Log');
   
  }
@@ -28,7 +29,7 @@ ngOnInit() {
 this.loginForm =this.formBuilder.group({
 userid: this.userid,
 password: this.password
-}); 
+});  
 }
 
 Validations(){
@@ -43,15 +44,28 @@ Authentication() {
     "UserId": this.userid,
     "Password":this.password
   }; 
+  this.spinner.show();
+  setTimeout(() => {
+    /** spinner ends after 5 seconds */
+    this.spinner.hide();
+}, 3000);
   this.http.put('https://localhost:44303/api/User/Login',this.loginInput)
     .subscribe((response) => {
       this.response = response;
       console.log(this.response); 
+      if(this.response == false)
+      { 
+        this.validationMessage = "EmployeeId or Password not valid! Please try again with correct credentials";
+        console.log(this.validationMessage);  
+      }
       if(this.response == true)
       { 
+        console.log(this.validationMessage);
         sessionStorage.setItem('loggedInEmployeeId', this.userid); 
-        location.replace('http://localhost:4200/welcomePage');
+        location.replace('http://localhost:4200/welcomePage'); 
       }
+      
+      
     }) 
 } 
 ForgotPassword() {

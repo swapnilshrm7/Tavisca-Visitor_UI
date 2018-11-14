@@ -9,15 +9,17 @@ import { DataService } from '../data.service';
 })
 export class WelcomePageComponent implements OnInit {
 userId = {};
-homeContent = {};
+homeContent = {};   
   constructor(private http: HttpClient, private dataService: DataService) { 
    }
-  ngOnInit() { 
+
+  ngOnInit() {   
+    sessionStorage.setItem('currentPageEqualsWelcomePage', 'true'); 
     this.userId = {"UserInput": sessionStorage.getItem('loggedInEmployeeId') }; 
     this.http.put('https://localhost:44303/api/Admin/GetAllLogs', this.userId)
     .subscribe((response) => {  
      this.homeContent = response;
-     console.log(this.homeContent);
-   });
+     console.log(this.homeContent); 
+   }); 
   }  
 }
