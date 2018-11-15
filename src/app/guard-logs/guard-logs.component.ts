@@ -44,5 +44,16 @@ export class GuardLogsComponent implements OnInit {
       this.guardLogs = this.dataService.getResponseOfUniqueGuardByName(); 
       console.log(this.guardLogs);
     } 
+  }
+  DownloadExcel() {
+    this.excelInput = {"UserInput": "Employees"};
+    this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Admin/Excel',this.excelInput)
+             .subscribe((response) => {
+              this.Open();
+            });
+  }
+  Open()
+  {
+    window.open("https://s3.ap-south-1.amazonaws.com/visitors-excel/Item1.xlsx", "_blank");
   } 
 }
