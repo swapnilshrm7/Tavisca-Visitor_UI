@@ -1,20 +1,25 @@
 <div class="tab">
-    <button class="tablinks" (click)="nameToggleCollapse()">Guard Name</button>
-    <div class="filter-box" *ngIf="!nameIsCollapsed">
-      Name:<br>
-      <input class="search-input" type="text" [(ngModel)]="name">
-      <button class="search-btn" routerLink="/guardLogs" (click)="getByGuardName()">Search</button>
-    </div>
-    <button class="tablinks" (click)="dateToggleCollapse()">Date</button>
-    <div class="filter-box" *ngIf="!dateIsCollapsed">
-      From Date:<br>
-      <input class="search-input" type="date" [(ngModel)]="fromDate"><br>
-      To Date:<br>
-      <input class="search-input" type="date" [(ngModel)]="toDate"><br>
-      From Time:<br>
-      <input class="search-input" type="time" [(ngModel)]="fromTime"><br>
-      To Time:<br>
-      <input class="search-input" type="time" [(ngModel)]="toTime">
-      <button class="search-btn" routerLink="/guardLogs" (click)="getByDate()">Search</button>
-    </div>
+  <button class="tablinks" (click)="nameToggleCollapse()">Guard Name</button>
+  <div class="filter-box" *ngIf="!nameIsCollapsed">
+    Name:
+    <br>
+    <input class="form-control search-input" type="text" [(ngModel)]="name" required>
+    <button class="search-btn" routerLink="/guardLogs" (click)="getByGuardName()">Search</button>
+  </div>
+  <button class="tablinks" (click)="dateToggleCollapse()">Date</button>
+  <div class="filter-box" *ngIf="!dateIsCollapsed">
+    From Date:
+    <br>
+    <input class="form-control search-input"  placeholder="mm/dd/yyyy" [(ngModel)]="fromDate" bsDatepicker>
+    <!-- <input class="form-control search-input" type="date" [(ngModel)]="fromDate"><br> -->
+    To Date:
+    <br>
+    <input class="form-control search-input"  placeholder="mm/dd/yyyy" [(ngModel)]="toDate" bsDatepicker [minDate]="fromDate" [maxDate]="currentDate">
+    <!-- <input class="form-control search-input" type="date"  bsDatepicker [minDate]="minDate" [(ngModel)]="toDate"><br> -->
+    From Time:  
+    <input class="form-control search-input" type="time" [(ngModel)]="fromTime">
+    To Time: 
+    <input class="form-control search-input" type="time" [(ngModel)]="toTime">
+    <button class="search-btn" routerLink="/guardLogs" (click)="getByDate()">Search</button>
+  </div>
 </div>

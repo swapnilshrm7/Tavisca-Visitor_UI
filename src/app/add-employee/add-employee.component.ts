@@ -81,8 +81,9 @@ export class AddEmployeeComponent implements OnInit {
         console.log(this.response); 
         if(this.response == true)
         { 
-          location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/welcomePage');
+          location.replace('http://localhost:4200/welcomePage');
         }
       }) 
   } 
 }
+ 

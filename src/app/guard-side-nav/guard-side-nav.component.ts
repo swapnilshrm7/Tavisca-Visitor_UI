@@ -21,13 +21,17 @@ export class GuardSideNavComponent implements OnInit {
   toTime: Time;
   nameObject= {};
   dateObject= {};
-  response: any;
+  response: any; 
+  currentDate: Date;
+  
   constructor( private http: HttpClient,private dataService: DataService) { }
 
   guardObj = new GuardLogsComponent(this.http, this.dataService);
 
   input1:any;
-  ngOnInit() { 
+  ngOnInit() {  
+    this.currentDate = new Date();
+    console.log(this.currentDate);
     name: this.name;
   }
 

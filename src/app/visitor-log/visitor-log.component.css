@@ -7,15 +7,25 @@ table, th, td {
 }
 
 table {
-    margin-top: 1.8%;
-    margin-left:1%;
+    margin-left:0.1%;
     margin-right:1%;
-    width: 100%;
+    width: 99.9%;
     border-collapse: collapse;
-} 
+}
+
+.display {
+    display: flex;
+}
+
+.display-table {
+    width: 100%;
+}
+
+.form-group {
+    position: fixed;
+    bottom: 0px;
+    right: 15px;
+}
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 tr:hover {background-color:#e78c8c;}
-div {
-    margin-left: 15%;
-}

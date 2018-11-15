@@ -37,12 +37,13 @@ button:hover {
 .imgcontainer {
     text-align: center;
     margin: 24px 0 30px 0;
+
 }
 
 img.avatar {
     width: 50%;
     position: relative;
-    left: 370px;
+    left: 330px;
 }
 
 .container {
@@ -63,6 +64,19 @@ span.psw {
 }
 .validation-div {
     text-align: center;
+}
+.btn-primary:disabled {
+    color: #fff;
+    background-color: grey;
+    border-color: #007bff;
+}
+
+.forgot-pswd {
+color: #007bff;
+}
+
+.btn {
+    cursor: pointer;
 }
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {

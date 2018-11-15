@@ -25,6 +25,7 @@ export class VisitorSideNavComponent implements OnInit {
   toTime: Time;
   nameObject= {};
   meetingPerson: string;
+  currentDate: Date;
   constructor(private http: HttpClient,private dataService: DataService) { }
 
   visitorObj = new VisitorLogComponent(this.http, this.dataService);
@@ -114,6 +115,7 @@ export class VisitorSideNavComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentDate = new Date();
   }
 
 }

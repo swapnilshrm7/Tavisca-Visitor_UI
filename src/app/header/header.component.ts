@@ -18,4 +18,7 @@ export class HeaderComponent implements OnInit {
   ResetPassword() {
 location.replace('http://localhost:4200/resetPassword');
   }
+  Logout() {
+    location.replace('http://localhost:4200/login');
+      }
 }

@@ -1,23 +1,27 @@
 <app-header></app-header>
 <app-nav-without-search></app-nav-without-search>   
-<app-guard-side-nav></app-guard-side-nav>
-<div >
-    <table>
-        <tr> 
-            <th>Guard Id</th>
-            <th>Guard Name</th>
-            <th>Login Time</th>
-            <th>Logout Time</th> 
-        </tr> 
-        <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()| paginate: { itemsPerPage:15, currentPage: p }">  
-            <td>{{data.guardId}}</td>
-            <td>{{data.guardName}}</td>
-            <td>{{data.loginTime}} {{data.loginDate}}</td>
-            <td>{{data.logoutTime}} {{data.logoutDate}}</td> 
-        </tr>   
-    </table>
-    <pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
+<div class="display">
+    <app-guard-side-nav></app-guard-side-nav>
+    <div *ngIf="error == false">Error occured! Please contact admin</div>
+    <div *ngIf="error != false" class="display-table">
+        <table>
+            <tr> 
+                <th>Guard Id</th>
+                <th>Guard Name</th>
+                <th>Login Time</th>
+                <th>Logout Time</th> 
+            </tr> 
+            <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()| paginate: { itemsPerPage:17, currentPage: p }">  
+                <td>{{data.guardId}}</td>
+                <td>{{data.guardName}}</td>
+                <td>{{data.loginTime}} {{data.loginDate}}</td>
+                <td>{{data.logoutTime}} {{data.logoutDate}}</td> 
+            </tr> 
+            <br/>  
+        </table>
+        <pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
+    </div>
 </div>
 <div class="form-group">
-        <button type="submit" class="btn btn-primary" (click)="DownloadExcel()">Download Excel</button>
+    <button type="submit" class="btn btn-primary" (click)="DownloadExcel()">Download Excel</button>
 </div>

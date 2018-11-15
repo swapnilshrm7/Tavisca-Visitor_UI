@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       userid: this.userid,
       password: this.password
     });
+    window.history.forward();
   }
 
   Validations() {
@@ -61,12 +62,12 @@ export class LoginComponent implements OnInit {
         if (this.response == true) {
           console.log(this.validationMessage);
           sessionStorage.setItem('loggedInEmployeeId', this.userid);
-          location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/welcomePage');
+          location.replace('http://localhost:4200/welcomePage');
         } 
       })
   }
   ForgotPassword() {
-    location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/forgotPassword');
+    location.replace('http://localhost:4200/forgotPassword');
   }
 
   refresh() {

@@ -1,28 +1,30 @@
 <app-header></app-header>
-<app-nav-without-search></app-nav-without-search> 
-<app-emp-side-nav></app-emp-side-nav>   
-<div>
-<table>
-        <tr> 
-            <th>Employee Id</th>
-            <th>Employee Name</th> 
-            <th>Date Of Visit</th> 
-            <th>Time Of Entry</th> 
-            <th>Date Of Exit</th> 
-            <th>Time Of Exit</th> 
-        </tr> 
-        <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()| paginate: { itemsPerPage:15, currentPage: p }">  
-            <td>{{data.employeeId}}</td>
-            <td>{{data.employeeName}}</td> 
-            <td>{{data.dateOfVisit}}</td>
-            <td>{{data.timeOfEntry}}</td>
-            <td>{{data.dateOfExit}}</td>
-            <td>{{data.timeOfExit}}</td>
-        </tr>   
-</table>
-<pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
+<app-nav-without-search></app-nav-without-search>
+<div class="display">
+    <app-emp-side-nav></app-emp-side-nav>
+    <div *ngIf="error == false">Error occured! Please contact admin</div>
+    <div *ngIf="error != false" class="display-table">
+        <table>
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th> 
+                <th>Date Of Entry</th> 
+                <th>Time Of Entry</th> 
+                <th>Date Of Exit</th> 
+                <th>Time Of Exit</th>
+            </tr>
+            <tr *ngFor="let data of this.dataService.getResponseOfUniqueGuardByName()">
+                <td>{{data.employeeId}}</td>
+                <td>{{data.employeeName}}</td> 
+                <td>{{data.dateOfVisit}}</td>
+                <td>{{data.timeOfEntry}}</td>
+                <td>{{data.dateOfExit}}</td>
+                <td>{{data.timeOfExit}}</td>
+            </tr>
+        </table>
+        <pagination-controls *ngIf="this.count > 15" class="pagination" (pageChange)="p =$event"></pagination-controls>
+    </div>
 </div>
 <div class="form-group">
     <button type="submit" class="btn btn-primary" (click)="DownloadExcel()">Download Excel</button>
 </div>
-  

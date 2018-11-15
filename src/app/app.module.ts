@@ -40,6 +40,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatSelectModule} from '@angular/material/select'; 
 import { NgxSpinnerModule } from 'ngx-spinner';  
 import {MatRadioModule} from '@angular/material/radio';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 export class MyModule {}
 
@@ -158,7 +159,8 @@ const appRoutes: Routes = [
         path: 'askNewPassword',
         component: AskNewPasswordComponent
       }  
-    ]) 
+    ]),
+    BsDatepickerModule.forRoot() 
   ],
   providers: [TestService,DataService ],
   bootstrap: [AppComponent]
