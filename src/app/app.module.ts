@@ -18,7 +18,7 @@ import { NavWithoutSearchComponent } from './nav-without-search/nav-without-sear
 import { AddGuardComponent } from './add-guard/add-guard.component'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
+import { MatNativeDateModule,MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatButtonModule } from '@angular/material';
 import { UniqueGuardsComponent } from './unique-guards/unique-guards.component';
 import { GuardLogsComponent } from './guard-logs/guard-logs.component';
 import { UniqueEmployeesComponent } from './unique-employees/unique-employees.component';
@@ -79,6 +79,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     MatNativeDateModule,
+    MatInputModule,
     AppRoutingModule,
     MatIconModule,
     FormsModule,
@@ -94,6 +95,7 @@ const appRoutes: Routes = [
     NgxSpinnerModule,
     MatSelectModule, 
     MatRadioModule,
+    MatFormFieldModule,
     RouterModule.forRoot([
       {
         path:'',

@@ -69,3 +69,13 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: orangered;}
+
+.validation { 
+    color: red; 
+}
+.validation-div {
+    text-align: center;
+    width: 70%;
+    margin-left: 15% ;
+    margin-top: -8.5%;
+}

@@ -17,7 +17,7 @@ export class GuardLogsComponent implements OnInit {
   ngOnInit() { 
     if(sessionStorage.getItem('loggedInEmployeeId') == null || sessionStorage.getItem('loggedInEmployeeId') == '')
     {
-      location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/login');
+      location.replace('http://localhost:4200/login');
     } 
     this.http.get('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/Log')
     .subscribe((response) => { 

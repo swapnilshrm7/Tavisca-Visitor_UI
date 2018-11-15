@@ -33,7 +33,7 @@ editData={};
   ngOnInit() {  
     if(sessionStorage.getItem('loggedInEmployeeId') == null || sessionStorage.getItem('loggedInEmployeeId') == '')
     {
-      location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/login');
+      location.replace('http://localhost:4200/login');
     } 
     this.editForm =this.formBuilder.group({
       guardId: this.guardId,
@@ -60,51 +60,34 @@ editData={};
     this.dataService.res = response;  
     this.dataService.setResponseOfEdit(response);  
     this.input1 = this.dataService.getResponseOfEdit();  
-    console.log(this.input1["bloodGroup"] );
-  });   
-  this.editForm =this.formBuilder.group({ 
-    guardId: this.input1["guardId"],
-    guardName:this.input1["guardName"],
-    emailId:this.input1["emailId"],
-    gender: this.input1["gender"],
-    dateOfResignation: this.input1["dateOfResignation"],
-    localAddress: this.input1["localAddress"],
-    permanentAddress: this.input1["permanentAddress"],
-    emergencyContactNumber: this.input1["emergencyContactNumber"],
-    emergencyContactPerson: this.input1["emergencyContactPerson"],
-    primaryContactNumber: this.input1["primaryContactNumber"],
-    secondaryContactNumber: this.input1["secondaryContactNumber"], 
-    remark: this.input1["remark"],
-    medicalSpecification: this.input1["medicalSpecification"],
-    guardStatus: this.input1["guardStatus"],
-    dateOfBirth: this.input1["dateOfBirth"],
-    dateOfJoining: this.input1["dateOfJoining"],
-    bloodGroup: this.input1["bloodGroup"] 
-});
-  } 
+    console.log(this.input1["guardId"] );
+  });    
+   } 
 
   EditGuard() {
  this.editData = {
-  "GuardId": this.guardId,
-  "GuardName":this.guardName,
-  "EmailId":this.emailId,
-  "Gender": this.gender,
-  "DateOfResignation": this.dateOfResignation,
-  "LocalAddress": this.localAddress,
-  "PermanentAddress": this.permanentAddress,
-  "EmergencyContactNumber": this.emergencyContact,
-  "EmergencyContactPerson": this.emergencyContactPerson,
-  "PrimaryContactNumber": this.contact,
-  "SecondaryContactNumber": this.secondaryContactNumber, 
-  "Remark": this.remark,
-  "MedicalSpecification": this.medicalSpecification,
-  "GuardStatus": this.guardStatus,
-  "DateOfBirth": this.dateOfBirth,
-  "DateOfJoining": this.dateOfJoining,
-  "BloodGroup": this.bloodGroup 
+  "GuardId": this.input1["guardId"],
+  "GuardName":this.input1["guardName"],
+  "EmailId":this.input1["emailId"],
+  "Gender": this.input1["gender"],
+  "DateOfResignation": this.input1["dateOfResignation"],
+  "LocalAddress": this.input1["localAddress"],
+  "PermanentAddress": this.input1["permanentAddress"],
+  "EmergencyContactNumber": this.input1["emergencyContactNumber"],
+  "EmergencyContactPerson": this.input1["emergencyContactPerson"],
+  "PrimaryContactNumber":this.input1["primaryContactNumber"],
+  "SecondaryContactNumber": this.input1["secondaryContactNumber"], 
+  "Remark": this.input1["remark"],
+  "MedicalSpecification":  this.input1["medicalSpecification"],
+  "GuardStatus": this.input1["guardStatus"],
+  "DateOfBirth": this.input1["dateOfBirth"],
+  "DateOfJoining": this.input1["dateOfJoining"],
+  "BloodGroup": this.input1["bloodGroup"] 
     }; 
+    console.log(this.editData);
     this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/EditGuard', this.editData)
       .subscribe((response) => {  
+        console.log(response)
         if(response == true)
         { 
           

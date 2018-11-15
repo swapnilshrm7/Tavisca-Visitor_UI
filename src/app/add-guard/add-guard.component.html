@@ -25,83 +25,79 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" class="validate" name="emailid" [(ngModel)]="this.emailid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+                            <input type="text" class="validate" name="emailid" [(ngModel)]="this.emailid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
                             <label data-error="Invalid Email">Email ID</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <label>Gender</label>
-                            <!-- <mat-radio-group style="position: absolute !important;">
-                                <mat-radio-button value="1">Option 1</mat-radio-button>
-                                <mat-radio-button value="2">Option 2</mat-radio-button>
-                            </mat-radio-group>  -->
-                            <input type="text" name="gender" placeholder="Female / Male / Others" [(ngModel)]="this.gender">
+                            <label>Gender</label> 
+                            <input type="text" name="gender" placeholder="Female / Male / Others" [(ngModel)]="this.gender" required>
                         </div>
                         <div class="input-field col s6">
-                            <input type="date" name="doj" placeholder="." [(ngModel)]="this.doj">
+                            <input type="date" name="doj" placeholder="." [(ngModel)]="this.doj" required>
                             <label>Joining Date</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
                             <input type="text" name="remark" [(ngModel)]="this.remark">
-                            <label>Remark</label>
+                            <label>Remark (Optional)</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
                             <input type="text" name="medicalSpecification" [(ngModel)]="this.medicalSpecification">
-                            <label>Medical Specification</label>
+                            <label>Medical Specification (Optional)</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="text" name="LocalAddress" [(ngModel)]="this.localAddress">
+                            <input type="text" name="LocalAddress" [(ngModel)]="this.localAddress" required>
                             <label>Local Address</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="text" name="PermanentAddress" [(ngModel)]="this.permanentAddress">
+                            <input type="text" name="PermanentAddress" [(ngModel)]="this.permanentAddress" required>
                             <label>Permanent Address</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input type="text" name="EmergencyPerson" [(ngModel)]="this.emergencyPerson">
+                            <input type="text" name="EmergencyPerson" [(ngModel)]="this.emergencyPerson" required>
                             <label>Emergency Contact Person Name</label>
                         </div>
-                        <mat-form-field hintLabel="Max 10 characters" class="input-field col s6">
-                            <input type="text" (keypress)="numberOnly($event)" matInput #input [(ngModel)]="this.emergencyContact" maxlength="10">
-                            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                        <mat-form-field  class="input-field col s6">
+                            <input type="text" name="emergencyContact" (keypress)="numberOnly($event)" matInput #input [(ngModel)]="this.emergencyContact" maxlength="10" required>
+                            <mat-hint align="end">{{this.emergencyContact.value?.length || 0}}/10</mat-hint>
                             <label>Emergency Contact Number</label>
                         </mat-form-field>
 
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="date" name="dob" placeholder="." [(ngModel)]="this.dob">
+                            <input type="date" name="dob" placeholder="." [(ngModel)]="this.dob" required>
                             <label>Date Of Birth</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="text" name="bloodGrp" [(ngModel)]="this.bloodGrp" placeholder="B+ve/B-ve/O+ve/O-ve">
+                            <input type="text" name="bloodGrp" [(ngModel)]="this.bloodGrp"  required>
                             <label>Blood Group</label>
                         </div>
                     </div>
                     <div class="row">
-                        <mat-form-field hintLabel="Max 10 characters" class="input-field col s6">
-                            <input type="text" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.contact">
-                            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                        <mat-form-field class="input-field col s6">
+                            <input type="text" name="contact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.contact" required>
+                            <mat-hint align="end">{{this.contact.value?.length || 0}}/10</mat-hint>
                             <label>Primary Contact Number</label>
                         </mat-form-field>
 
-                        <mat-form-field hintLabel="Max 10 characters" class="input-field col s6">
-                            <input type="text" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.secondaryContact">
-                            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                            <label>Secondary Contact Number</label>
+                        <mat-form-field  class="input-field col s6">
+                            <input type="text" name="secondaryContact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.secondaryContact">
+                            <mat-hint align="end">{{this.secondaryContact.value?.length || 0}}/10</mat-hint>
+                            <label>Secondary Contact Number (Optional)</label>
                         </mat-form-field>
                     </div>
 

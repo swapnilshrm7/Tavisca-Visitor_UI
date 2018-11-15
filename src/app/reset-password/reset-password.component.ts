@@ -20,7 +20,7 @@ export class ResetPasswordComponent implements OnInit {
 ngOnInit() {
   if(sessionStorage.getItem('loggedInEmployeeId') == null || sessionStorage.getItem('loggedInEmployeeId') == '')
     {
-      location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/login');
+      location.replace('http://localhost:4200/login');
     } 
     this.resetPasswordForm =this.formBuilder.group({
       oldPswd: this.oldPswd,
@@ -39,13 +39,12 @@ ngOnInit() {
 
 Authentication(){
   this.credentials = {
-    "UserId": this.oldPswd,
-    "Password":sessionStorage.getItem('loggedInEmployeeId')
+    "UserId": sessionStorage.getItem('loggedInEmployeeId'),
+    "Password": this.oldPswd
   }; 
   this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/User/Login',this.credentials)
     .subscribe((response) => {
-      this.response = response;
-      console.log(this.response); 
+      this.response = response; 
       if(this.response == true)
       {  
         this.CheckIfPasswordEnteredCorrectly();
@@ -54,9 +53,8 @@ Authentication(){
 }  
 
 CheckIfPasswordEnteredCorrectly(){
-if(this.newPswd == this.confirmPswd) {
-  alert('Done!');
-  location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/welcomePage');
+if(this.newPswd == this.confirmPswd) { 
+  location.replace('http://localhost:4200/welcomePage');
   }
 }
 

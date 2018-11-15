@@ -61,7 +61,7 @@ export class ForgotPasswordComponent implements OnInit {
         if (this.response == true) { 
           console.log(this.employeeId);
           console.log(sessionStorage.getItem('forgotPasswordEmployeeId'));
-          location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/askNewPassword');
+          location.replace('http://localhost:4200/askNewPassword');
         }
         if (this.response == false)
         {

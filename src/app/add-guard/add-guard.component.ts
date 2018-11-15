@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
   guard: Guard ;
   emailPattern: any;
   userid: string;
+  test: any ;
   guardName: string; 
   emailid: string; 
   permanentAddress: string;
@@ -41,7 +42,7 @@ validationMessage: string = '';
   ngOnInit() { 
     if(sessionStorage.getItem('loggedInEmployeeId') == null || sessionStorage.getItem('loggedInEmployeeId') == '')
     {
-      location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/login');
+      location.replace('http://localhost:4200/login');
     } 
     this.emailPattern= "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"; 
     
@@ -75,7 +76,7 @@ validationMessage: string = '';
       EmailId: this.emailid,
       PermanentAddress: this.permanentAddress,
       LocalAddress: this.localAddress,
-      EmergencyContactNumber: this.emergencyContact,
+      EmergencyContactNumber: this.test,
       EmergencyContactPerson: this.emergencyPerson,
       DateOfBirth: this.dob,
       BloodGroup: this.bloodGrp,
@@ -86,13 +87,14 @@ validationMessage: string = '';
       MedicalSpecification:this.medicalSpecification,
       SecondaryContactNumber :this.secondaryContact
     }; 
+    console.log(this.guard);
     console.log("Date Of Joining-- "+this.doj);
     console.log("Date Of Joining value-- "+this.doj.valueOf());
     var diff = Math.abs(new Date(this.doj).getTime() - new Date(this.dob).getTime());
     console.log("Difference-- "+diff);
      var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
      console.log("Number of days--- "+ diffDays);
-    if(diff != 6700)
+    if(diff < 6700)
     {
       this.validationMessage = "Guard must have age equal to or more than 19 years.";
     } 
@@ -102,6 +104,7 @@ validationMessage: string = '';
       if(response == true)
       {   
         this.resetForm(); 
+        this.validationMessage = "Guard Added successfully"
       }
     })  
   } 

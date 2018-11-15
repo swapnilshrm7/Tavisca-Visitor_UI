@@ -19,13 +19,14 @@ removeId_Emp: string;
 guardObj = new GuardLogsComponent(this.http, this.dataService);
 welcomeObj = new WelcomePageComponent(this.http, this.dataService);
   constructor( private svc: TestService, private router: Router, private http: HttpClient, private dataService: DataService) { }
-
+removeGuardMessage : string = '';
+removeEmployeeMessage: string= '';
 ngOnInit() { 
-
+console.log(this.removeGuardMessage);
 }
 
 EditGuard() { 
-  location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/askId');
+  location.replace('http://localhost:4200/askId');
 }
 
 Edit( ) { 
@@ -39,17 +40,20 @@ refresh() {
   }
 
   RemoveGuard() { 
-    this.dataService.setInput({'UserInput': this.removeId}); 
-    console.log(this.dataService.getInput());
+    this.dataService.setInput({'UserInput': this.removeId});  
     this.http.put('http://taviscaemployeevisitor-dev.ap-south-1.elasticbeanstalk.com/api/Guard/RemoveGuard', this.dataService.getInput())
     .subscribe((response) => {  
+      console.log(response);
       if(response == true)
-      {  
-        alert("Guard removed successfully!");
-        //this.welcomeObj.successfulMessage("Guard removed successfully!");
+      {   
+        this.removeGuardMessage = "Guard Removed Successfully"  
+      }
+      else {
+        this.removeGuardMessage = "Guard Can't be Removed"
       }
     }) 
   }
+
   RemoveEmployee() {
     this.dataService.setInput({'UserInput': this.removeId_Emp}); 
     console.log(this.dataService.getInput());
@@ -57,8 +61,10 @@ refresh() {
     .subscribe((response) => {  
       if(response == true)
       {  
-        alert("Employee removed successfully!");
-        //this.welcomeObj.successfulMessage("Guard removed successfully!");
+        this.removeEmployeeMessage = "Removed Employee Successfully"  
+      }
+      else {
+        this.removeEmployeeMessage = "Employee Can't be Removed"
       }
     }) 
   }
