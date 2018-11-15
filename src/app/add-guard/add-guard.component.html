@@ -1,3 +1,116 @@
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<app-header></app-header>
+<app-nav-without-search></app-nav-without-search> 
+<div class="container">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card">
+                <div class="sm-jumbotron center-align">
+                    <h2> Guard Registration </h2>
+                </div>
+                 <div *ngIf=" validationMessage != ''" class="validation-div">
+                   <label  class="validation">{{validationMessage}}</label>
+                </div> 
+                <form class="col s12 white" #guardRegistrationForm="ngForm" autocomplete="off" (ngSubmit)="OnSubmit(guardRegistrationForm)">
+                    <div class="row"> 
+                        <div class="input-field col s6">
+                            <input type="text" class="validate" name="userid" [(ngModel)]="this.userid" required>
+                            <label data-error="Required Field">Guard ID</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" class="validate" name="guardName" [(ngModel)]="this.guardName" required>
+                            <label data-error="Required Field">Guard Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" name="emailid" [(ngModel)]="this.emailid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" >
+                            <label data-error="Invalid Email">Email ID</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label>Gender</label> 
+                            <input type="text" name="gender" placeholder="Female / Male / Others" [(ngModel)]="this.gender"  >
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="date" name="doj" placeholder="." [(ngModel)]="this.doj"  >
+                            <label>Joining Date</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col input-field s12">
+                            <input type="text" name="remark" [(ngModel)]="this.remark">
+                            <label>Remark (Optional)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col input-field s12">
+                            <input type="text" name="medicalSpecification" [(ngModel)]="this.medicalSpecification">
+                            <label>Medical Specification (Optional)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col input-field s12">
+                            <input type="text" name="LocalAddress" [(ngModel)]="this.localAddress"  >
+                            <label>Local Address</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col input-field s12">
+                            <input type="text" name="PermanentAddress" [(ngModel)]="this.permanentAddress"  >
+                            <label>Permanent Address</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" name="EmergencyPerson" [(ngModel)]="this.emergencyPerson"  >
+                            <label>Emergency Contact Person Name</label>
+                        </div>
+                        <mat-form-field  class="input-field col s6">
+                            <input type="text" name="emergencyContact" (keypress)="numberOnly($event)" matInput #input [(ngModel)]="this.emergencyContact" maxlength="10"  >
+                            <mat-hint align="end">{{this.emergencyContact.value?.length || 0}}/10</mat-hint>
+                            <label>Emergency Contact Number</label>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="row">
+                        <div class="col input-field s12">
+                            <input type="date" name="dob" placeholder="." [(ngModel)]="this.dob"  >
+                            <label>Date Of Birth</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col input-field s12">
+                            <input type="text" name="bloodGrp" [(ngModel)]="this.bloodGrp"   >
+                            <label>Blood Group</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="input-field col s6">
+                            <input type="text" name="contact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.contact"  >
+                            <mat-hint align="end">{{this.contact.value?.length || 0}}/10</mat-hint>
+                            <label>Primary Contact Number</label>
+                        </mat-form-field>
+
+                        <mat-form-field  class="input-field col s6">
+                            <input type="text" name="secondaryContact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.secondaryContact">
+                            <mat-hint align="end">{{this.secondaryContact.value?.length || 0}}/10</mat-hint>
+                            <label>Secondary Contact Number (Optional)</label>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn-large btn-submit" [disabled]="!guardRegistrationForm.form.valid" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
 <app-header></app-header>
@@ -25,79 +138,79 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" class="validate" name="emailid" [(ngModel)]="this.emailid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
+                            <input type="text" class="validate" name="emailid" [(ngModel)]="this.emailid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
                             <label data-error="Invalid Email">Email ID</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <label>Gender</label> 
-                            <input type="text" name="gender" placeholder="Female / Male / Others" [(ngModel)]="this.gender" required>
+                            <label>Gender</label>
+                            <!-- <mat-radio-group style="position: absolute !important;">
+                                <mat-radio-button value="1">Option 1</mat-radio-button>
+                                <mat-radio-button value="2">Option 2</mat-radio-button>
+                            </mat-radio-group>  -->
+                            <input type="text" name="gender" placeholder="Female / Male / Others" [(ngModel)]="this.gender">
                         </div>
                         <div class="input-field col s6">
-                            <input type="date" name="doj" placeholder="." [(ngModel)]="this.doj" required>
+                            <input type="date" name="doj" placeholder="." [(ngModel)]="this.doj">
                             <label>Joining Date</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
                             <input type="text" name="remark" [(ngModel)]="this.remark">
-                            <label>Remark (Optional)</label>
+                            <label>Remark</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
                             <input type="text" name="medicalSpecification" [(ngModel)]="this.medicalSpecification">
-                            <label>Medical Specification (Optional)</label>
+                            <label>Medical Specification</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="text" name="LocalAddress" [(ngModel)]="this.localAddress" required>
+                            <input type="text" name="LocalAddress" [(ngModel)]="this.localAddress">
                             <label>Local Address</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="text" name="PermanentAddress" [(ngModel)]="this.permanentAddress" required>
+                            <input type="text" name="PermanentAddress" [(ngModel)]="this.permanentAddress">
                             <label>Permanent Address</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input type="text" name="EmergencyPerson" [(ngModel)]="this.emergencyPerson" required>
+                            <input type="text" name="EmergencyPerson" [(ngModel)]="this.emergencyPerson">
                             <label>Emergency Contact Person Name</label>
                         </div>
                         <mat-form-field  class="input-field col s6">
-                            <input type="text" name="emergencyContact" (keypress)="numberOnly($event)" matInput #input [(ngModel)]="this.emergencyContact" maxlength="10" required>
-                            <mat-hint align="end">{{this.emergencyContact.value?.length || 0}}/10</mat-hint>
-                            <label>Emergency Contact Number</label>
-                        </mat-form-field>
+                                <input type="text" name="emergencyContact" (keypress)="numberOnly($event)" matInput #input [(ngModel)]="this.emergencyContact" maxlength="10"  > 
+                                <label>Emergency Contact Number</label>
+                            </mat-form-field>
 
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="date" name="dob" placeholder="." [(ngModel)]="this.dob" required>
+                            <input type="date" name="dob" placeholder="." [(ngModel)]="this.dob">
                             <label>Date Of Birth</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col input-field s12">
-                            <input type="text" name="bloodGrp" [(ngModel)]="this.bloodGrp"  required>
+                            <input type="text" name="bloodGrp" [(ngModel)]="this.bloodGrp" placeholder="B+ve/B-ve/O+ve/O-ve">
                             <label>Blood Group</label>
                         </div>
                     </div>
                     <div class="row">
-                        <mat-form-field class="input-field col s6">
-                            <input type="text" name="contact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.contact" required>
-                            <mat-hint align="end">{{this.contact.value?.length || 0}}/10</mat-hint>
-                            <label>Primary Contact Number</label>
-                        </mat-form-field>
-
                         <mat-form-field  class="input-field col s6">
-                            <input type="text" name="secondaryContact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.secondaryContact">
-                            <mat-hint align="end">{{this.secondaryContact.value?.length || 0}}/10</mat-hint>
-                            <label>Secondary Contact Number (Optional)</label>
+                            <input type="text" name = "contact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.contact"> 
+                            <label>Primary Contact Number</label>
+                        </mat-form-field> 
+                        <mat-form-field  class="input-field col s6">
+                            <input type="text" name = "secondaryContact" (keypress)="numberOnly($event)" matInput #input maxlength="10" [(ngModel)]="this.secondaryContact"> 
+                            <label>Secondary Contact Number</label>
                         </mat-form-field>
                     </div>
 
