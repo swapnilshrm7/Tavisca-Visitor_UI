@@ -34,7 +34,7 @@ export class AskNewPasswordComponent implements OnInit {
         this.validationMessage = "Some Error Occured!"; 
       }
       if (response == true) {  
-        location.replace('http://localhost:4200/welcomePage');
+        location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/welcomePage');
       } 
     }) 
   }

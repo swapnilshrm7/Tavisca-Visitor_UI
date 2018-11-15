@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   showSpinner: boolean = true;
   validationMessage: string = '';
-  constructor(private spinner: NgxSpinnerService, private formBuilder: FormBuilder, private svc: TestService, private http: HttpClient) {
-    //svc.GetRequestWithoutParam('https://localhost:44303/api/Guard/Log');
-
+  constructor(private spinner: NgxSpinnerService, private formBuilder: FormBuilder, private svc: TestService, private http: HttpClient) { 
   }
 
   ngOnInit() {
@@ -62,12 +60,12 @@ export class LoginComponent implements OnInit {
         if (this.response == true) {
           console.log(this.validationMessage);
           sessionStorage.setItem('loggedInEmployeeId', this.userid);
-          location.replace('http://localhost:4200/welcomePage');
+          location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/welcomePage');
         } 
       })
   }
   ForgotPassword() {
-    location.replace('http://localhost:4200/forgotPassword');
+    location.replace('http://ec2-13-127-119-114.ap-south-1.compute.amazonaws.com:4200/forgotPassword');
   }
 
   refresh() {
